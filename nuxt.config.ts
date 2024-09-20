@@ -12,5 +12,9 @@ export default defineNuxtConfig({
     vuetifyOptions: {
       /* vuetify options */
     }
-  }
+  },
+  
+
+
+
 })
