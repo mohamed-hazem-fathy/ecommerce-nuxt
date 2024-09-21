@@ -174,7 +174,7 @@
             <hr class="mt-6" style="color: white !important;">
             <br>
             <div class="d-flex justify-lg-space-between">
-              <p>© 2024 Ecommerce theme by www.bisenbaev.com</p>
+              <p>© 2024 Ecommerce theme by Mohamed Hazem</p>
               <ul style="list-style:none">
                 <li><img src="/assets/imges/Brands.png" alt=""></li>
               </ul>
@@ -255,5 +255,26 @@ export default {
   background-size: cover;
   background-position: center;
   height: 300px; /* Adjust height as necessary */
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b00f0f;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 </style>

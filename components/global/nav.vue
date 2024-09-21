@@ -10,8 +10,16 @@
         <v-col cols="6">
           <div>
             <ul class="d-flex justify-space-between align-center " style="list-style:none; margin-top:-18px">
-              <li><span><profile class="profile" />My profile</span></li>
-              <li><span><cart /></span></li>
+              <li><span><nuxt-link to="#" class="text-decoration-none text-white" >
+                <div class="user-prof d-flex align-center">
+                  <NuxtLink to="/">   <v-avatar class="">
+                    <v-img class="" alt="John" src="/assets/imges/mohamedhazem.jpg"></v-img>
+                  </v-avatar></NuxtLink>
+
+                  <h3 style="color: black;" class="ml-3">Mohamed Hazem</h3>
+                </div>
+              </nuxt-link></span></li>
+              <li><span><NuxtLink to="/cart"><cart /></NuxtLink></span></li>
               <li> <span>items</span></li>
               <li><span>$0.00 <searsh /></span></li>
             </ul>
@@ -29,12 +37,12 @@
         <v-col cols="8">
           <ul class="d-flex justify-space-between align-center mt-2"style="list-style:none;"><li> <v-menu offset-y>
             <template v-slot:activator="{ props }">
-              <a style="cursor: pointer;" v-bind="props">Home</a>
+              <a style="cursor: pointer;" class="stylefontlink" v-bind="props">Home<v-icon icon="mdi-chevron-down"></v-icon></a>
             </template>
             <v-list class="d-flex">
               <v-list-item-group>
                 <v-list-item>
-                  <v-list-item-title>Corporate Shoes</v-list-item-title>
+                  <v-list-item-title><nuxt-link to="/product">Corporate Shoes</nuxt-link></v-list-item-title>
                 </v-list-item>
                 <v-list-item>
                   <v-list-item-title>Sneakers</v-list-item-title>
@@ -48,9 +56,6 @@
                 <v-list-item>
                   <v-list-item-title>Trainers</v-list-item-title>
                 </v-list-item>
-
-
-
                 <v-list-item>
                   <v-list-item-title>HOT DEAL</v-list-item-title>
                 </v-list-item>
@@ -83,10 +88,8 @@
                 <v-list-item>
                   <v-list-item-title>Trainers</v-list-item-title>
                 </v-list-item>
-
-
                 <v-list-item>
-                  <v-list-item-title><nuxt-link to="/product">home</nuxt-link></v-list-item-title>
+                  <v-list-item-title><nuxt-link to="/"> HOT DEAL </nuxt-link></v-list-item-title>
                 </v-list-item>
                 <v-list-item>
                   <v-list-item-title>Sunglasses</v-list-item-title>
@@ -103,11 +106,10 @@
               </v-list-item-group>
             </v-list>
           </v-menu></li>
-
-            <li><a class="stylefontlink" href="#">BAGS</a></li>
-            <li><a class="stylefontlink" href="#">SNEAKERS</a></li>
+            <li><nuxt-link   class="link" style="color: black;" to="/product"><a  class="stylefontlink">BAGS</a ></nuxt-link></li>
+            <li><nuxt-link  style="color: black;" to="/product"><a  class="stylefontlink">SNEAKERS</a ></nuxt-link></li>
             <li><a class="stylefontlink" href="#">BELT</a></li>
-            <li><a class="stylefontlink" href="#">CONTACT</a></li>
+            <li><nuxt-link class="link" style="color: black;" to="/contact"><a  class="stylefontlink">CONTACT</a ></nuxt-link></li>
           </ul>
         </v-col>
       </v-row>
@@ -186,5 +188,14 @@ a {
 .stylefontlink.active,
 .stylefontlink:hover {
 
+}
+.stylefontlink {
+  &:hover{
+      color: #40BFFF;
+  }
+}
+
+.stylefontlink.link:hover {
+  color: #40BFFF;
 }
 </style >

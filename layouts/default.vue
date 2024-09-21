@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
    <header>
     <nav>
         <div>
@@ -59,5 +59,25 @@ import footer  from '../components/global/footer.vue'
 </script>
 
 <style lang="scss" scoped>
+
+</style> -->
+<template>
+  <div>
+    <myNav />
+    <!-- <NavforLoged/> -->
+    <slot />
+    <footer />
+  </div>
+</template>
+
+<script>
+  export default {
+
+  }
+</script>
+
+<style lang="scss" >
+
+
 
 </style>
