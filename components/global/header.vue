@@ -16,7 +16,7 @@
 
 <style lang="scss" >
 .img {
-    background-image: url(../../assets/imges/PromotionImage.png);
+    background-image: url('/assets/imges/PromotionImage.png');
     background-size: cover;
     width: 100%;
     height: 800px;
