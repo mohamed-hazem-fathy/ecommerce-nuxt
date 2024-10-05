@@ -88,11 +88,14 @@
     </div>
 </template>
 
-<script>
-    export default {
+<script setup>
+definePageMeta({
+  middleware: ["auth"],
+});
 
-    }
+const FirebaseUser  = useFirebaseUser();
 </script>
+
 
 <style lang="scss" scoped>
 
