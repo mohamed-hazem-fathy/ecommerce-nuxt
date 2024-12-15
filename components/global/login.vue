@@ -1,4 +1,4 @@
-DD
+
 <template>
   <div>
     <v-container>
@@ -26,7 +26,7 @@ DD
             <v-form>
               <div style="position: relative">
                 <input
-                
+
                   id="email-input"
                   style="
                     border: 1px solid #9098b1;

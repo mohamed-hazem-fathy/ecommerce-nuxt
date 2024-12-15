@@ -89,11 +89,11 @@
 </template>
 
 <script setup>
-definePageMeta({
-  middleware: ["auth"],
-});
+// definePageMeta({
+//   middleware: ["auth"],
+// });
 
-const FirebaseUser  = useFirebaseUser();
+// const FirebaseUser  = useFirebaseUser();
 </script>
 
 
