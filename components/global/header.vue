@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="padding: 10px;">
         <div class="img">
             <v-container>
               <h1 style="color: white">Super Flash Sale <br />50% Off</h1>
@@ -30,6 +30,7 @@
     height: 400px; // ارتفاع أصغر على الموبايل
     background-position: center center;
     background-image: url('/assets/imges/Promotion Image.png');
+    margin-top: -84px;
 
   }
 }
@@ -40,6 +41,7 @@ h1 {
   margin-left: 30px;
   @media (max-width: 768px) {
     font-size: 24px; // نص أصغر على شاشات الموبايل
+    top: 30%;
   }
 }
 
