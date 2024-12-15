@@ -1,5 +1,5 @@
 <template>
-    <div style="padding: 10px;">
+    <div class="header" style="padding: 5px;">
         <div class="img">
             <v-container>
               <h1 style="color: white">Super Flash Sale <br />50% Off</h1>
@@ -15,6 +15,9 @@
 </script>
 
 <style lang="scss" >
+.header {
+  position: relative;
+}
 .img {
   background-image: url('/assets/imges/PromotionImage.png');
   background-size: cover;
@@ -30,7 +33,7 @@
     height: 400px; // ارتفاع أصغر على الموبايل
     background-position: center center;
     background-image: url('/assets/imges/Promotion Image.png');
-    margin-top: -84px;
+    top: -80px;
 
   }
 }
@@ -39,9 +42,16 @@ h1 {
   top: 50%;
   font-size: 100px;
   margin-left: 30px;
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     font-size: 24px; // نص أصغر على شاشات الموبايل
     top: 30%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .img {
+    background-size: contain;
+    background-image: url('/assets/imges/Promotion Image.png');
+    margin-top: 0;
   }
 }
 

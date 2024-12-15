@@ -277,4 +277,9 @@ export default {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+.mainseal {
+  @media (max-width: 800px) {
+   display: none!important;
+  }
+}
 </style>
