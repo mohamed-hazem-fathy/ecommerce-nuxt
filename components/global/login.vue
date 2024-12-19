@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <v-container>
@@ -23,10 +22,10 @@
           </div>
 
           <div style="width: 65%; margin: 1% auto; text-align: center">
-            <v-form>
+            <v-form @submit.prevent="login">
               <div style="position: relative">
                 <input
-
+                  v-model="email"
                   id="email-input"
                   style="
                     border: 1px solid #9098b1;
@@ -50,6 +49,7 @@
               </div>
               <div class="mt-4" style="position: relative">
                 <input
+                  v-model="password"
                   id="password-input"
                   style="
                     border: 1px solid #9098b1;
@@ -61,11 +61,11 @@
                   type="text"
                   placeholder="          Your Password"
                 />
-
                 <br />
                 <a style="color: #40bfff" href="#">forget Password</a>
               </div>
               <v-btn
+                onClick="submit"
                 type="submit"
                 class="mt-5"
                 style="
@@ -160,3 +160,33 @@
   top: 12px;
 }
 </style>
+
+<script setup>
+import axios from "axios";
+
+const email = ref("");
+const password = ref("");
+
+const login = async (event) => {
+  event.preventDefault();
+
+  try {
+    const respons = await axios.post("http://127.0.0.1:8000/api/login", {
+      email: email.value,
+      password: password.value
+    });
+    setTimeout(() => {
+      navigateTo("/");
+      useCookie("loggedIn").value = true;
+      let token = respons.data.token;
+      localStorage.setItem("token", respons.data.token)
+      console.log(token)
+    }, 1500);
+    console.log(respons)
+    console.log(token)
+
+  } catch (error) {
+    console.error('error = ', error)
+  }
+};
+</script>
