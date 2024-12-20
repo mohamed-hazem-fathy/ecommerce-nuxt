@@ -75,7 +75,7 @@
                   height: 57px;
                 "
               >
-                Sign In
+                Register
               </v-btn>
             </v-form>
 
@@ -127,7 +127,7 @@
             </v-btn>
             <p class="mt-5">
               Don’t have a account?
-              <a href="" style="color: #40bfff">Register</a>
+              <a href="/pages/register.vue" style="color: #40bfff">Register</a>
             </p>
           </div>
         </v-col>
