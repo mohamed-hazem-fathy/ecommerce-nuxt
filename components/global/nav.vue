@@ -26,7 +26,7 @@
                             ></v-img> </v-avatar
                         ></NuxtLink>
 
-                        <h3 style="color: black" class="ml-3">Mohamed Hazem</h3>
+                        <h3 style="color: black" class="ml-3">name user</h3>
                       </div>
                     </nuxt-link></span
                   >
@@ -40,8 +40,10 @@
                 <li>
                   <span>$0.00 <searsh /></span>
                 </li>
+                <nuxt-link style="background-color: aqua; padding:5px; border-radius:7px" to="/login">login</nuxt-link>
               </ul>
             </div>
+
           </v-col>
         </v-row>
         <hr class="mt-1" />
@@ -192,6 +194,7 @@
 </template>
 
 <script>
+import { ref } from "vue";
 import icondown from "../icons/arrowdown";
 import profile from "../icons/profile";
 import cart from "../icons/cart";
@@ -202,27 +205,17 @@ import dropdown from "./dropdown.vue";
 export default {
   name: "navbar",
   components: { icondown, profile, cart, searsh, logo, dropdown },
-  data() {
-    return {
-      homedropdown: [
-        {
-          title: "Coporate Shoes",
-          link: "#",
-        },
-        {
-          title: "Coporate Shoes",
-          link: "#",
-        },
-        {
-          title: "HOT DEAL",
-          link: "#",
-        },
-      ],
-    };
+  setup() {
+    const homedropdown = [
+      { title: "Coporate Shoes", link: "#" },
+      { title: "Coporate Shoes", link: "#" },
+      { title: "HOT DEAL", link: "#" },
+    ];
+
+    return { homedropdown };
   },
 };
 </script>
-
 <style lang="scss">
 a {
   text-decoration: none;

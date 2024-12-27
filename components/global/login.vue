@@ -58,14 +58,13 @@
                     margin: 0 auto;
                     border-radius: 6px;
                   "
-                  type="text"
+                  type="password"
                   placeholder="          Your Password"
                 />
                 <br />
                 <a style="color: #40bfff" href="#">forget Password</a>
               </div>
               <v-btn
-                onClick="submit"
                 type="submit"
                 class="mt-5"
                 style="
@@ -75,7 +74,7 @@
                   height: 57px;
                 "
               >
-                Register
+                Login
               </v-btn>
             </v-form>
 
@@ -101,7 +100,7 @@
                     left: 40px;
                     top: 7px;
                   "
-                  icon="mdile-google"
+                  icon="mdi-google"
                 ></v-icon
               ></a>
               Login with Google
@@ -120,73 +119,102 @@
               <a href="#"
                 ><v-icon
                   style="position: absolute; left: 40px; top: 7px"
-                  icon="mdile-facebook"
+                  icon="mdi-facebook"
                 ></v-icon
               ></a>
-              Login with facebook
+              Login with Facebook
             </v-btn>
             <p class="mt-5">
-              Don’t have a account?
-              <a href="/pages/register.vue" style="color: #40bfff">Register</a>
+              Don’t have an account?
+              <nuxt-link to="/register" style="color: #40bfff"
+                >Register</nuxt-link
+              >
             </p>
+            <p><nuxt-link style="color: #40bfff" to="/adminlogin">Login As Admin</nuxt-link></p>
           </div>
         </v-col>
-
         <v-col cols="2"></v-col>
-
-        DD
       </v-row>
     </v-container>
+
+  <!-- Snackbar for Success -->
+  <v-snackbar
+  v-model="snackbarSuccess"
+  :timeout="3000"
+  color="success"
+  vertical="top"
+  horizontal="right"
+>
+  {{ successMessage }}
+</v-snackbar>
+
+<!-- Snackbar for Error -->
+<v-snackbar
+  v-model="snackbarError"
+  :timeout="3000"
+  color="error"
+  vertical="top"
+  horizontal="right"
+>
+  {{ errorMessage }}
+</v-snackbar>
   </div>
 </template>
 
-<style lang="scss" scoped>
-.or::before {
-  content: "";
-  width: 200px;
-  position: absolute;
-  background-color: gray;
-  height: 1px;
-  left: 29px;
-  top: 12px;
-}
-.or::after {
-  content: "";
-  width: 200px;
-  position: absolute;
-  background-color: gray;
-  height: 1px;
-  right: 29px;
-  top: 12px;
-}
-</style>
-
 <script setup>
+import { ref } from "vue";
 import axios from "axios";
+import { useRouter } from "vue-router";
 
 const email = ref("");
 const password = ref("");
+const router = useRouter();
 
+
+// حالات الإشعار
+const snackbarSuccess = ref(false);
+const snackbarError = ref(false);
+
+// رسائل الإشعار
+const successMessage = ref("Login successful!");
+const errorMessage = ref("Invalid email or password");
+
+// Login function
 const login = async (event) => {
   event.preventDefault();
-
+  if (!email.value || !password.value) {
+    alert("Please fill in both fields");
+    return;
+  }
   try {
-    const respons = await axios.post("http://127.0.0.1:8000/api/login", {
+    const response = await axios.post("http://127.0.0.1:8000/api/login", {
       email: email.value,
-      password: password.value
+      password: password.value,
     });
-    setTimeout(() => {
-      navigateTo("/");
-      useCookie("loggedIn").value = true;
-      let token = respons.data.token;
-      localStorage.setItem("token", respons.data.token)
-      console.log(token)
-    }, 1500);
-    console.log(respons)
-    console.log(token)
 
+    // Save token to localStorage and show success message
+    localStorage.setItem("token", response.data.token);
+    useCookie("loggedIn").value = true;
+
+    successMessage.value = "Logged in successfully!";
+    snackbarSuccess.value = true;
+
+    setTimeout(() => {
+      router.push("/");
+    }, 1500);
   } catch (error) {
-    console.error('error = ', error)
+    console.error("Login error:", error);
+     // Show error message in snackbar
+     errorMessage.value = "Invalid email or password";
+    snackbarError.value = true;
   }
 };
 </script>
+
+<style scoped>
+.succ {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+</style>

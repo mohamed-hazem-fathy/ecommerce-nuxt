@@ -14,7 +14,7 @@
     }
 </script>
 
-<style lang="scss" >
+<style scoped lang="scss" >
 .header {
   top: 0px;
 
@@ -24,7 +24,7 @@
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 800px; // الطول على الديسكتوب
+  height: 800px;
   position: relative;
 
   @media (max-width: 800px) {
@@ -38,7 +38,7 @@
   }
   @media (min-width:1024px) {
     background-image: url('/assets/imges/PromotionImage.png');
-   
+
   }
 }
 h1 {
@@ -47,7 +47,7 @@ h1 {
   font-size: 100px;
   margin-left: 70px;
   @media (max-width: 800px) {
-    font-size: 24px; // نص أصغر على شاشات الموبايل
+    font-size: 24px;
     top: 30%;
   }
 }

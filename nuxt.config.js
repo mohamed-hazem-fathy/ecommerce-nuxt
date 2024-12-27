@@ -1,11 +1,9 @@
 // Nuxt config file
-import { defineNuxtConfig } from 'nuxt/config'
-
-export default defineNuxtConfig({
-
+export default {
   modules: [
     'vuetify-nuxt-module'
-  ],  css: [
+  ],
+  css: [
     '@fortawesome/fontawesome-free/css/all.min.css'
   ],
   vuetify: {
@@ -15,9 +13,5 @@ export default defineNuxtConfig({
     vuetifyOptions: {
       /* vuetify options */
     }
-  },
-
-
-
-
-})
+  }
+}

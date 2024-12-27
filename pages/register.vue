@@ -102,7 +102,7 @@
                     margin: 0 auto;
                     border-radius: 6px;
                   "
-                  type="text"
+                  type="password"
                   placeholder="          Password Again"
                 />
                 <v-icon
@@ -187,38 +187,78 @@
         <v-col cols="2"></v-col>
       </v-row>
     </v-container>
+      <!-- Snackbar for Success -->
+      <v-snackbar
+      v-model="snackbarSuccess"
+      :timeout="3000"
+      color="success"
+      vertical="top"
+      horizontal="right"
+    >
+      {{ successMessage }}
+
+    </v-snackbar>
+
+    <!-- Snackbar for Error -->
+    <v-snackbar
+      v-model="snackbarError"
+      :timeout="3000"
+      color="error"
+      vertical="top"
+      horizontal="right"
+    >
+      {{ errorMessage }}
+     
+    </v-snackbar>
   </div>
 </template>
 
 <script setup>
-// definePageMeta({
-//   middleware: ["auth"],
-// });
 import axios from "axios";
+import { ref } from "vue";
+import { useRouter } from "vue-router"; // تأكد من استيراد useRouter بشكل صحيح
+
 const name = ref("");
 const email = ref("");
 const password = ref("");
+const router = useRouter(); // استخدام useRouter بشكل صحيح
+
+// حالات الإشعار
+const snackbarSuccess = ref(false);
+const snackbarError = ref(false);
+
+// رسائل الإشعار
+const successMessage = ref("Account Created successfully!");
+const errorMessage = ref("An error occurred during registration!");
 
 const submit = async (event) => {
   event.preventDefault();
 
   try {
-    const respons = await axios.post("http://127.0.0.1:8000/api/rigister", {
+    // تصحيح اسم المسار API
+    const response = await axios.post("http://127.0.0.1:8000/api/rigister", {
       name: name.value,
       email: email.value,
       password: password.value,
     });
+
+    successMessage.value = "Account Created successfully!";
+    snackbarSuccess.value = true;
+
+    // الانتقال بعد ثانية واحدة إلى الصفحة الرئيسية
     setTimeout(() => {
-      navigateTo("/");
-      useCookie("loggedIn").value = true;
-      let token = respons.data.token;
-      localStorage.setItem("token", respons.data.token);
-      console.log(token);
+      router.push("/"); // استخدام router.push بدلاً من navigateTo
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("name", response.data.user.name);
+      console.log("Token:", response.data.token);
     }, 1500);
-    console.log(respons);
-    console.log(token);
+
+    console.log(response);
   } catch (error) {
-    console.error("error = ", error);
+    console.error("Error:", error);
+    // عرض رسالة الخطأ في الإشعار
+    errorMessage.value = "An error occurred during registration!";
+    snackbarError.value = true;
   }
 };
 </script>
