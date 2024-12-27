@@ -183,11 +183,42 @@
           </v-col>
           <v-col cols="3">
             <div class="d-flex align-center justify-center">
-           <div style="width: 50%;  margin-right:20px"><i style="font-size:35px;" class="fa-regular fa-heart"></i></div>
-             <div style="width: 50%; margin-right:12px"><i style="font-size:35px" class="fa-regular fa-bell"></i></div>
+              <div style="width: 50%; margin-right: 30px">
+                <i style="font-size: 35px;" class="fa-regular fa-heart"></i>
+              </div>
+              <div style="width: 50%; margin-right: 12px">
+                <i style="font-size: 35px" class="fa-regular fa-bell"></i>
+              </div>
+              <div>
+                <!-- الأيقونة التي تفتح القائمة -->
+                <i
+                  @click="toggleMenu"
+                  style="font-size: 33px; color: black; cursor: pointer"
+                  class="fas fa-bars"
+                ></i>
+              </div>
             </div>
           </v-col>
         </v-row>
+
+        <!-- القائمة الجانبية -->
+        <transition name="fade">
+          <div v-if="isMenuOpen" class="side-menu">
+            <ul>
+              <li><a href="#">Products</a></li>
+              <hr style="color: #40bfff;" class="mt-3">
+              <li><a href="#">About Us</a></li>
+              <hr style="color: #40bfff;" class="mt-3">
+              <li><a href="#">Contact</a></li>
+              <hr style="color: #40bfff;" class="mt-3">
+              <li><a href="login">login</a></li>
+              <hr style="color: #40bfff;" class="mt-3">
+              <li>
+                <a href="#" @click="toggleMenu">Close Menu</a>
+              </li>
+            </ul>
+          </div>
+        </transition>
       </v-container>
     </div>
   </nav>
@@ -206,13 +237,17 @@ export default {
   name: "navbar",
   components: { icondown, profile, cart, searsh, logo, dropdown },
   setup() {
+    const isMenuOpen = ref(false);
+    const toggleMenu = () => {
+      isMenuOpen.value = !isMenuOpen.value;
+    };
     const homedropdown = [
       { title: "Coporate Shoes", link: "#" },
       { title: "Coporate Shoes", link: "#" },
       { title: "HOT DEAL", link: "#" },
     ];
 
-    return { homedropdown };
+    return { homedropdown,isMenuOpen, toggleMenu };
   },
 };
 </script>
@@ -267,4 +302,5 @@ a {
   padding: 8px;
   border-radius: 4px;
 }
+
 </style>

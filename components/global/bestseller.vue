@@ -7,11 +7,11 @@
               align-tabs="center"
               color="blue"
             >
-              <v-tab :value="1">All</v-tab>
-              <v-tab :value="2">Bags</v-tab>
-              <v-tab :value="3">Sneakers</v-tab>
-              <v-tab :value="4">Belt</v-tab>
-              <v-tab :value="5">Sunglasses</v-tab>
+              <v-tab class="all" :value="1">All</v-tab>
+              <v-tab class="alll" :value="2">Bags</v-tab>
+              <v-tab class="alll" :value="3">Sneakers</v-tab>
+              <v-tab class="alll" :value="4">Belt</v-tab>
+              <v-tab class="alll" :value="5">Sunglasses</v-tab>
             </v-tabs>
     </div>
     <div class="containercustmize"  >
@@ -401,6 +401,15 @@
   -webkit-transition: 1s;
   -o-transition: 1s;
   transition: 0.8s;
+}
+
+@media (max-width: 800px) {
+  .all {
+    margin-left: -30px!important
+  }
+  .alll {
+    margin-left: -22px!important
+  }
 }
 
 .hot {
