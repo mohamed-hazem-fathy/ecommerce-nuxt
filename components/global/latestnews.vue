@@ -6,7 +6,7 @@
                 <v-col cols="12" sm="4">
                     <v-row>
                         <v-col cols="6">
-                           <v-img src="/assets/imges/nn 1.png"></v-img>
+                           <v-img src="/imges/nn 1.png"></v-img>
 
 
 
@@ -23,7 +23,7 @@
                 <v-col cols="12" sm="4">
                     <v-row>
                         <v-col cols="6">
-                           <v-img src="/assets/imges/figma-1-logo 1.png"></v-img>
+                           <v-img src="/imges/figma-1-logo 1.png"></v-img>
 
 
 
@@ -35,16 +35,10 @@
                         </v-col>
                     </v-row>
                 </v-col>
-
-
-
                 <v-col cols="12" sm="4">
                     <v-row>
                         <v-col cols="6">
-                           <v-img src="/assets/imges/kronos-logo-1-1 1.png"></v-img>
-
-
-
+                           <v-img src="/imges/kronos-logo-1-1 1.png"></v-img>
                         </v-col>
                         <v-col class="text-start" cols="6">
                             <span>01 Jan, 2024</span>

@@ -6,7 +6,7 @@
                 <v-col cols="12" sm="4">
                     <v-row>
                         <v-col cols="6">
-                            <v-img src="/assets/imges/Rectangle 1 copy 25.png"></v-img>
+                            <v-img src="/imges/Rectangle 1 copy 25.png"></v-img>
                         </v-col>
                         <v-col cols="6">
                          <p style="font-size: 25px;">Blue Swade Nike Sneakers</p>
@@ -27,7 +27,7 @@
                 <v-col cols="12" sm="4">
                     <v-row>
                         <v-col cols="6">
-                            <v-img src="/assets/imges/Rectangle 1 copy 25.png"></v-img>
+                            <v-img src="/imges/Rectangle 1 copy 25.png"></v-img>
                         </v-col>
                         <v-col cols="6">
                          <p style="font-size: 25px;">Blue Swade Nike Sneakers</p>
@@ -49,7 +49,7 @@
                 <v-col cols="12" sm="4">
                     <v-row>
                         <v-col cols="6">
-                            <v-img src="/assets/imges/Rectangle 1 copy 25.png"></v-img>
+                            <v-img src="/imges/Rectangle 1 copy 25.png"></v-img>
                         </v-col>
                         <v-col cols="6">
                          <p style="font-size: 25px;">Blue Swade Nike Sneakers</p>

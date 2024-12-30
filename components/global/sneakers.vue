@@ -21,7 +21,7 @@
                 </v-col>
                 <v-col cols="12" sm="6">
                     <div style="position: relative;">
-                        <img class="sneake" style="position: absolute; top:-109px; right:-104px " src="/assets/imges/shoes-shoe-png-transparent-shoe-images-pluspng-17 1.png" alt="">
+                        <img class="sneake" style="position: absolute; top:-109px; right:-104px " src="/imges/shoes-shoe-png-transparent-shoe-images-pluspng-17 1.png" alt="">
                     </div>
 
                 </v-col>

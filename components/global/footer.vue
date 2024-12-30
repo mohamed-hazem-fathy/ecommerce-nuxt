@@ -4,7 +4,7 @@
             <v-row class="mt-15 mb-15">
                 <v-col cols="12" sm="4">
                <div class="d-flex">
-                <img style=" border-radius:45%; height:50px; width: 50px;" src="/assets/imges/ico5.png"></img>
+                <img style=" border-radius:45%; height:50px; width: 50px;" src="/imges/ico5.png"></img>
                 <h2 style="margin-left: 8px;">E-Comm</h2>
                </div>
                <p class="mt-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.Since the 1500s, when an unknown printer.</p>
@@ -18,8 +18,8 @@
                   </div>
                   <p class="mt-9">Since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
                   <ul class="d-flex mt-5 " style="list-style:none">
-                    <li><img  src="/assets/imges/facebook.png" alt=""></li>
-                    <li><img class="ml-15" src="/assets/imges/twitter.png" alt=""></li>
+                    <li><img  src="/imges/facebook.png" alt=""></li>
+                    <li><img class="ml-15" src="/imges/twitter.png" alt=""></li>
                   </ul>
                    </v-col>
 
@@ -83,7 +83,7 @@
             <div class="d-flex justify-lg-space-between">
               <p>© 2024 Ecommerce theme by Mohamed Hazem</p>
               <ul style="list-style:none">
-                <li><img src="/assets/imges/Brands.png" alt=""></li>
+                <li><img src="/imges/Brands.png" alt=""></li>
               </ul>
             </div>
 

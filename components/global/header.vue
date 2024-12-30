@@ -33,11 +33,11 @@
     background-repeat: no-repeat;
     height: 350px;
     background-position: center center;
-    background-image: url('/assets/imges/Promotion Image.png');
+    background-image: url('/imges/Promotion Image.png');
     top:0px;
   }
   @media (min-width:1024px) {
-    background-image: url('/assets/imges/PromotionImage.png');
+    background-image: url('/imges/PromotionImage.png');
 
   }
 }
@@ -54,7 +54,7 @@ h1 {
 @media (min-width: 800px) and (max-width: 1024px) {
   .img {
     background-size: contain;
-    background-image: url('/assets/imges/Promotion Image.png');
+    background-image: url('/imges/Promotion Image.png');
    top: -115px;
   }
 

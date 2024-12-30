@@ -8,7 +8,7 @@
             <span>USD <icondown /></span>
           </v-col>
           <v-col cols="6">
-            <div>
+            <div >
               <ul
                 class="d-flex justify-space-between align-center"
                 style="list-style: none; margin-top: -18px"
@@ -18,32 +18,41 @@
                     ><nuxt-link to="#" class="text-decoration-none text-white">
                       <div class="user-prof d-flex align-center">
                         <NuxtLink to="/">
-                          <v-avatar class="">
+                          <v-avatar class="mt-2">
                             <v-img
                               class=""
                               alt="John"
-                              src="/assets/imges/mohamedhazem.jpg"
+                              src="/imges/mohamedhazem.jpg"
                             ></v-img> </v-avatar
                         ></NuxtLink>
 
-                        <h3 style="color: black" class="ml-3">name user</h3>
+                        <h3 style="color: black" class="ml-3 mt-2">Gest</h3>
                       </div>
                     </nuxt-link></span
                   >
                 </li>
-                <li>
-                  <span
-                    ><NuxtLink to="/cart"><cart /></NuxtLink
-                  ></span>
+                <li style="margin-top:24px;">
+                    <nuxt-link to="/cart">
+                      <v-badge :content="cartStore.productsTotal || 0"   color="error">
+                        <v-icon> mdi-cart-outline</v-icon>
+                      </v-badge>
+                    </nuxt-link>
                 </li>
-                <li><span>items</span></li>
-                <li>
-                  <span>$0.00 <searsh /></span>
+                <li class="mt-4"><span>items</span></li>
+                <li class="mt-3">
+                  <span >$0.00 <searsh /></span>
                 </li>
-                <nuxt-link style="background-color: aqua; padding:5px; border-radius:7px" to="/login">login</nuxt-link>
+                <nuxt-link class="mt-3"
+                  style="
+                    background-color: aqua;
+                    padding: 5px;
+                    border-radius: 7px;
+                  "
+                  to="/login"
+                  >login</nuxt-link
+                >
               </ul>
             </div>
-
           </v-col>
         </v-row>
         <hr class="mt-1" />
@@ -184,7 +193,7 @@
           <v-col cols="3">
             <div class="d-flex align-center justify-center">
               <div style="width: 50%; margin-right: 30px">
-                <i style="font-size: 35px;" class="fa-regular fa-heart"></i>
+                <i style="font-size: 35px" class="fa-regular fa-heart"></i>
               </div>
               <div style="width: 50%; margin-right: 12px">
                 <i style="font-size: 35px" class="fa-regular fa-bell"></i>
@@ -206,13 +215,13 @@
           <div v-if="isMenuOpen" class="side-menu">
             <ul>
               <li><a href="#">Products</a></li>
-              <hr style="color: #40bfff;" class="mt-3">
+              <hr style="color: #40bfff" class="mt-3" />
               <li><a href="#">About Us</a></li>
-              <hr style="color: #40bfff;" class="mt-3">
+              <hr style="color: #40bfff" class="mt-3" />
               <li><a href="#">Contact</a></li>
-              <hr style="color: #40bfff;" class="mt-3">
+              <hr style="color: #40bfff" class="mt-3" />
               <li><a href="login">login</a></li>
-              <hr style="color: #40bfff;" class="mt-3">
+              <hr style="color: #40bfff" class="mt-3" />
               <li>
                 <a href="#" @click="toggleMenu">Close Menu</a>
               </li>
@@ -226,6 +235,8 @@
 
 <script>
 import { ref } from "vue";
+import { useCardStore } from '~/stores/card'; // Ensure this path is correct
+
 import icondown from "../icons/arrowdown";
 import profile from "../icons/profile";
 import cart from "../icons/cart";
@@ -238,16 +249,12 @@ export default {
   components: { icondown, profile, cart, searsh, logo, dropdown },
   setup() {
     const isMenuOpen = ref(false);
+    const cartStore = useCardStore(); // Initialize the store here
     const toggleMenu = () => {
       isMenuOpen.value = !isMenuOpen.value;
     };
-    const homedropdown = [
-      { title: "Coporate Shoes", link: "#" },
-      { title: "Coporate Shoes", link: "#" },
-      { title: "HOT DEAL", link: "#" },
-    ];
 
-    return { homedropdown,isMenuOpen, toggleMenu };
+    return { isMenuOpen, toggleMenu, cartStore };
   },
 };
 </script>
@@ -302,5 +309,4 @@ a {
   padding: 8px;
   border-radius: 4px;
 }
-
 </style>

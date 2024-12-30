@@ -19,7 +19,7 @@
 
 
                     <div style="width: 90%; margin:50px auto; text-align:center ">
-                        <v-img style="width: 120px; margin:0 auto;"  src="/assets/imges/Icon.png"></v-img>
+                        <v-img style="width: 120px; margin:0 auto;"  src="/imges/Icon.png"></v-img>
                         <p class="mt-1" style="font-size: 16px; font-weight:bold; letter-spacing:1px">Welcome to E-com</p>
                         <span style="color:#9098B1; margin-top:5px">Reset Password By Email</span>
                     </div>

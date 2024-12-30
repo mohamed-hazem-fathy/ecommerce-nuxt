@@ -8,7 +8,7 @@
           <div style="width: 90%; margin: 50px auto; text-align: center">
             <v-img
               style="width: 120px; margin: 0 auto"
-              src="/assets/imges/Icon.png"
+              src="/imges/Icon.png"
             ></v-img>
             <p
               class="mt-1"
