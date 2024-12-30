@@ -12,7 +12,7 @@
       <v-tab class="alll" :value="5">Sunglasses</v-tab>
     </v-tabs>
   </div>
-  <v-container>
+
     <v-row class="my-5">
       <v-col cols="12">
         <v-btn @click="grid = !grid" :class="{ 'bg-primary': !grid }">
@@ -37,7 +37,7 @@
             lg="4"
             sm="6"
           >
-            <v-card class="mx-auto pb-2">
+            <v-card  class="mx-auto pb-2">
               <v-img :src="product.image" height="200px" cover>
                 <template v-slot:placeholder>
                   <v-row
@@ -156,7 +156,7 @@
         </div>
       </v-col>
     </v-row>
-  </v-container>
+
 </template>
 
 <script setup>
