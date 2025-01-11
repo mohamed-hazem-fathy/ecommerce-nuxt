@@ -1,22 +1,19 @@
 <template>
-    <div>
-
-        <login></login>
-
-    </div>
+  <div>
+    <login></login>
+  </div>
 </template>
 
 <script setup>
-import login from '@/components/global/login.vue'
-
+import login from "@/components/global/login.vue";
 // definePageMeta({
-//   middleware: ["auth"]
-//   // or middleware: 'auth'
+//   middleware: [
+//     (to, from) => {
+//         console.log(to , 'To')
+//         console.log(from , 'from')
+//         console.log(useCookie('user'));
+//     }
+//   ]
+
 // });
-
-
-
 </script>
-
-
-

@@ -217,7 +217,10 @@ import featuredproducts from "../components/global/featuredproducts.vue";
 import search from "../components/global/search.vue";
 import footer from "../components/global/footer.vue";
 
+definePageMeta({
+  middleware: ['auth']
 
+});
 export default {
   data() {
     return {
@@ -226,6 +229,7 @@ export default {
   },
   components: { myNav, myheader ,bestsaller,sneakers, serves , featuredproducts,search, footer},
 };
+
 </script>
 
 <style lang="scss" scoped>

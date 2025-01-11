@@ -141,7 +141,7 @@
 
 
                             <v-col  cols="12" sm="3">
-                                <template>
+
                                     <v-card style=""
                                       class="mx-auto"
                                       max-width="400"
@@ -181,12 +181,12 @@
                                       </div>
 
                                     </v-card>
-                                  </template>
+
                             </v-col>
 
 
                             <v-col cols="12" sm="3">
-                                <template>
+
                                     <v-card
                                       class="mx-auto"
                                       max-width="400"
@@ -216,11 +216,11 @@
                                       </div>
 
                                     </v-card>
-                                  </template>
+
                             </v-col>
 
                             <v-col cols="12" sm="3">
-                                <template>
+
                                     <v-card
                                       class="mx-auto"
                                       max-width="400"
@@ -250,11 +250,11 @@
                                       </div>
 
                                     </v-card>
-                                  </template>
+
                             </v-col>
 
                             <v-col cols="12" sm="3">
-                                <template>
+
                                     <v-card
                                       class="mx-auto"
                                       max-width="400"
@@ -284,12 +284,12 @@
                                       </div>
 
                                     </v-card>
-                                  </template>
+
                             </v-col>
 
 
                             <v-col cols="12" sm="3">
-                                <template>
+
                                     <v-card
                                       class="mx-auto"
                                       max-width="400"
@@ -319,12 +319,12 @@
                                       </div>
 
                                     </v-card>
-                                  </template>
+
                             </v-col>
 
 
                             <v-col cols="12" sm="3">
-                                <template>
+
                                     <v-card
                                       class="mx-auto"
                                       max-width="400"
@@ -354,12 +354,12 @@
                                       </div>
 
                                     </v-card>
-                                  </template>
+
                             </v-col>
 
 
                             <v-col cols="12" sm="3">
-                                <template>
+
                                     <v-card
                                       class="mx-auto"
                                       max-width="400"
@@ -389,12 +389,12 @@
                                       </div>
 
                                     </v-card>
-                                  </template>
+
                             </v-col>
 
 
                             <v-col cols="12" sm="3">
-                                <template>
+
 
                                     <v-card
                                       class="mx-auto"
@@ -425,14 +425,8 @@
                                       </div>
 
                                     </v-card>
-
-                                  </template>
                             </v-col>
-
-
                             <v-col cols="12" sm="3">
-                                <template>
-
                                     <v-card
                                       class="mx-auto"
                                       max-width="400"
@@ -463,12 +457,12 @@
 
                                     </v-card>
 
-                                  </template>
+
                             </v-col>
 
 
                             <v-col cols="12" sm="3">
-                                <template>
+
 
                                     <v-card
                                       class="mx-auto"
@@ -500,12 +494,12 @@
 
                                     </v-card>
 
-                                  </template>
+
                             </v-col>
 
 
                             <v-col cols="12" sm="3">
-                                <template>
+
 
                                     <v-card
                                       class="mx-auto"
@@ -534,49 +528,12 @@
                                         <span style="color:black; text-decoration: line-through; font-size:14px">$534,33</span>
                                         <span style="color: red; font-size:14px"> 24% Off</span>
                                       </div>
-
                                     </v-card>
 
-                                  </template>
-                            </v-col>
-
-
-                            <v-col cols="12" sm="3">
-                                <template>
-
-                                    <v-card
-                                      class="mx-auto"
-                                      max-width="400"
-                                    >
-                                      <v-img
-                                        class="align-end text-white team-item"
-                                        height="250"
-                                        src="/imges/Product Picture7.png"
-                                        cover
-                                      >
-                                      </v-img>
-                                      <p class="title_Card">Nike Air Max 270 React</p>
-
-                                      <div style="" class="text-center">
-                                        <v-rating
-                                        :size="30"
-                                        color="yellow"
-                                          v-model="rating"
-                                          readonly
-                                        ></v-rating>
-                                      </div>
-
-                                      <div class="d-flex justify-lg-space-evenly align-center mb-2">
-                                        <span style="font-size: 20px; color: #00bcd4; font-weight:bold;">$<span style="font-size:20px;">2</span>99,43</span>
-                                        <span style="color:black; text-decoration: line-through; font-size:14px">$534,33</span>
-                                        <span style="color: red; font-size:14px"> 24% Off</span>
-                                      </div>
-
-                                    </v-card>
-
-                                  </template>
                             </v-col>
                         </v-row>
+
+
 
 
                         <div>
@@ -710,12 +667,14 @@
 </template>
 
 <script>
+ import { useCardStore } from '~/stores/card'
 import myNav from "/components/global/nav";
 import footer from "/components/global/footer";
     export default {
         components:{myNav, footer},
              data() {
     return {
+      cartStore : useCardStore(),
         colors: ['#2196F3', '#F44336', '#000000', '#FFEB3B', '#E91E63', '#F5F5F5'],
         selectedColor: null,
         value: [20, 40],
@@ -743,6 +702,34 @@ import footer from "/components/global/footer";
     };
 
   },
+  computed: {
+      cartItems() {
+        const store = useCardStore();
+        return store.formattedCart; // استرجاع العناصر من السلة
+      },
+      subtotal() {
+        // حساب التكلفة الفرعية لكل المنتجات
+        return this.cartItems.reduce((total, item) => total + item.cost, 0);
+      },
+      totalPrice() {
+        // إضافة رسوم الشحن
+        return this.subtotal + 20; // رسوم الشحن ثابتة هنا بـ 20$
+      },
+    },
+    methods: {
+      incrementQuantity(productId) {
+        const store = useCardStore();
+        store.increment(productId); // زيادة الكمية
+      },
+      decrementQuantity(productId) {
+        const store = useCardStore();
+        store.decrement(productId); // تقليل الكمية
+      },
+      removeFromCart(productId) {
+        const store = useCardStore();
+        store.remove(productId); // إزالة المنتج من السلة
+      },
+    },
 
 
     }

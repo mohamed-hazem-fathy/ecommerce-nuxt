@@ -33,7 +33,7 @@
     background-repeat: no-repeat;
     height: 350px;
     background-position: center center;
-    background-image: url('/imges/Promotion Image.png');
+    background-image: url('/images/Promotion Image.png');
     top:0px;
   }
   @media (min-width:1024px) {

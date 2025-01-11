@@ -18,7 +18,7 @@ const products = [
   {
     id: "3",
     name: "Nike Air Max 270 React",
-    price: parseFloat("600.43"),
+    price: parseFloat("670.43"),
     oldPrice: parseFloat("750.33"),
     image: "/imges/image Product3.png",
     discount: "24% off",
@@ -26,7 +26,7 @@ const products = [
   {
     id: "4",
     name: "Nike Air Max 270 React",
-    price: parseFloat("600.43"),
+    price: parseFloat("620.43"),
     oldPrice: parseFloat("750.33"),
     image: "/imges/image Product1.png",
     discount: "24% off",
@@ -34,7 +34,7 @@ const products = [
   {
     id: "5",
     name: "Nike Air Max 270 React",
-    price: parseFloat("600.43"),
+    price: parseFloat("900.43"),
     oldPrice: parseFloat("750.33"),
     image: "/imges/Product Picture5.png",
     discount: "24% off",
@@ -42,7 +42,7 @@ const products = [
   {
     id: "6",
     name: "Nike Air Max 270 React",
-    price: parseFloat("600.43"),
+    price: parseFloat("700.43"),
     oldPrice: parseFloat("750.33"),
     image: "/imges/Product Picture7.png",
     discount: "24% off",
@@ -58,7 +58,7 @@ const products = [
   {
     id: "8",
     name: "Nike Air Max 270 React",
-    price: parseFloat("600.43"),
+    price: parseFloat("650.43"),
     oldPrice: parseFloat("750.33"),
     image: "/imges/Promotion Image.png",
     discount: "24% off",
@@ -66,7 +66,7 @@ const products = [
   {
     id: "9",
     name: "Nike Air Max 270 React",
-    price: parseFloat("600.43"),
+    price: parseFloat("607.43"),
     oldPrice: parseFloat("750.33"),
     image: "/imges/image Product (1).png",
     discount: "24% off",
@@ -74,7 +74,7 @@ const products = [
   {
     id: "10",
     name: "Nike Air Max 270 React",
-    price: parseFloat("600.43"),
+    price: parseFloat("500.43"),
     oldPrice: parseFloat("750.33"),
     image: "/imges/Product Picture5.png",
     discount: "24% off",
@@ -82,7 +82,7 @@ const products = [
   {
     id: "11",
     name: "Nike Air Max 270 React",
-    price: parseFloat("600.43"),
+    price: parseFloat("680.43"),
     oldPrice: parseFloat("750.33"),
     image: "/imges/image Product3.png",
     discount: "24% off",
@@ -98,7 +98,7 @@ const products = [
   {
     id: "13",
     name: "Nike Air Max 270 React",
-    price: parseFloat("600.43"),
+    price: parseFloat("606.43"),
     oldPrice: parseFloat("750.33"),
     image: "/imges/image Product3.png",
     discount: "24% off",
@@ -117,6 +117,14 @@ const products = [
     price: parseFloat("600.43"),
     oldPrice: parseFloat("750.33"),
     image: "/imges/image Product4.png",
+    discount: "24% off",
+  },
+  {
+    id: "16",
+    name: "Nike Air Max 270 React",
+    price: parseFloat("600.43"),
+    oldPrice: parseFloat("750.33"),
+    image: "/imges/image Product (2).png",
     discount: "24% off",
   },
 ];

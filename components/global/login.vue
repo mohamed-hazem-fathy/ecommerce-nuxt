@@ -130,34 +130,38 @@
                 >Register</nuxt-link
               >
             </p>
-            <p><nuxt-link style="color: #40bfff" to="/adminlogin">Login As Admin</nuxt-link></p>
+            <p>
+              <nuxt-link style="color: #40bfff" to="/adminlogin"
+                >Login As Admin</nuxt-link
+              >
+            </p>
           </div>
         </v-col>
         <v-col cols="2"></v-col>
       </v-row>
     </v-container>
 
-  <!-- Snackbar for Success -->
-  <v-snackbar
-  v-model="snackbarSuccess"
-  :timeout="3000"
-  color="success"
-  vertical="top"
-  horizontal="right"
->
-  {{ successMessage }}
-</v-snackbar>
+    <!-- Snackbar for Success -->
+    <v-snackbar
+      v-model="snackbarSuccess"
+      :timeout="3000"
+      color="success"
+      vertical="top"
+      horizontal="right"
+    >
+      {{ successMessage }}
+    </v-snackbar>
 
-<!-- Snackbar for Error -->
-<v-snackbar
-  v-model="snackbarError"
-  :timeout="3000"
-  color="error"
-  vertical="top"
-  horizontal="right"
->
-  {{ errorMessage }}
-</v-snackbar>
+    <!-- Snackbar for Error -->
+    <v-snackbar
+      v-model="snackbarError"
+      :timeout="3000"
+      color="error"
+      vertical="top"
+      horizontal="right"
+    >
+      {{ errorMessage }}
+    </v-snackbar>
   </div>
 </template>
 
@@ -169,7 +173,6 @@ import { useRouter } from "vue-router";
 const email = ref("");
 const password = ref("");
 const router = useRouter();
-
 
 // حالات الإشعار
 const snackbarSuccess = ref(false);
@@ -191,9 +194,11 @@ const login = async (event) => {
       email: email.value,
       password: password.value,
     });
-
+console.log(response)
     // Save token to localStorage and show success message
     localStorage.setItem("token", response.data.token);
+    useCookie("token").value = response.data.token;
+    useCookie("name").value = response.data.name;
     useCookie("loggedIn").value = true;
 
     successMessage.value = "Logged in successfully!";
@@ -204,8 +209,8 @@ const login = async (event) => {
     }, 1500);
   } catch (error) {
     console.error("Login error:", error);
-     // Show error message in snackbar
-     errorMessage.value = "Invalid email or password";
+    // Show error message in snackbar
+    errorMessage.value = "Invalid email or password";
     snackbarError.value = true;
   }
 };

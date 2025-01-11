@@ -4,16 +4,48 @@
       <v-contaner>
         <v-row class="" style="width: 80%; margin: 0px auto; height: 50px">
           <v-col cols="6">
-            <span>EN <icondown /></span>
-            <span>USD <icondown /></span>
+            <v-menu offset-y>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn text v-bind="attrs" v-on="on">
+                  EN <v-icon>mdi-chevron-down</v-icon>
+                </v-btn>
+              </template>
+              <v-list>
+                <v-list-item
+                  v-for="(lang, index) in languages"
+                  :key="index"
+                  @click="changeLanguage(lang.code)"
+                >
+                  <v-list-item-title>{{ lang.label }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+
+            <v-menu offset-y>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn text v-bind="attrs" v-on="on">
+                  USD <v-icon>mdi-chevron-down</v-icon>
+                </v-btn>
+              </template>
+              <v-list>
+                <v-list-item
+                  v-for="(currency, index) in currencies"
+                  :key="index"
+                  @click="changeCurrency(currency.code)"
+                >
+                  <v-list-item-title>{{ currency.label }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
           </v-col>
+
           <v-col cols="6">
             <div >
               <ul
                 class="d-flex justify-space-between align-center"
                 style="list-style: none; margin-top: -18px"
               >
-                <li>
+                <li v-if="!useCookie('loggedIn') == false">
                   <span
                     ><nuxt-link to="#" class="text-decoration-none text-white">
                       <div class="user-prof d-flex align-center">
@@ -26,7 +58,7 @@
                             ></v-img> </v-avatar
                         ></NuxtLink>
 
-                        <h3 style="color: black" class="ml-3 mt-2">Gest</h3>
+                        <h3 style="color: black" class="ml-3 mt-2">{{ name }}</h3>
                       </div>
                     </nuxt-link></span
                   >
@@ -42,7 +74,8 @@
                 <li class="mt-3">
                   <span >$0.00 <searsh /></span>
                 </li>
-                <nuxt-link class="mt-3"
+                <nuxt-link
+                v-if="useCookie('loggedIn').value !== true" class="mt-3"
                   style="
                     background-color: aqua;
                     padding: 5px;
@@ -51,6 +84,12 @@
                   to="/login"
                   >login</nuxt-link
                 >
+                <li>
+                  <button
+                  v-if="useCookie('loggedIn').value !== false"
+                    style="background-color: aqua; padding: 5px; border-radius: 7px;"
+                    @click="loogout">logout</button>
+                </li>
               </ul>
             </div>
           </v-col>
@@ -243,6 +282,8 @@ import cart from "../icons/cart";
 import searsh from "../icons/sersh";
 import logo from "../icons/logo";
 import dropdown from "./dropdown.vue";
+import Cookies from 'js-cookie';
+
 
 export default {
   name: "navbar",
@@ -250,12 +291,50 @@ export default {
   setup() {
     const isMenuOpen = ref(false);
     const cartStore = useCardStore(); // Initialize the store here
+    const name = useCookie('name').value
     const toggleMenu = () => {
       isMenuOpen.value = !isMenuOpen.value;
     };
 
-    return { isMenuOpen, toggleMenu, cartStore };
+    return { isMenuOpen, toggleMenu, cartStore,name };
   },
+  data() {
+    return {
+      languages: [
+        { label: "English", code: "en" },
+        { label: "Arabic", code: "ar" },
+        { label: "French", code: "fr" },
+      ],
+      currencies: [
+        { label: "USD", code: "usd" },
+        { label: "EUR", code: "eur" },
+        { label: "SAR", code: "sar" },
+      ],
+    };
+  },
+  methods: {
+  changeLanguage(code) {
+    console.log("Language changed to:", code);
+    this.$i18n.locale = code; // يجب إعداد i18n
+  },
+  changeCurrency(code) {
+    console.log("Currency changed to:", code);
+  },
+  loogout() {
+    // إزالة الكوكي
+    useCookie('loggedIn').value = false;
+    useCookie('token').value = '';
+    useCookie('name').value = '';
+
+    // أو إذا كنت تستخدم js-cookie
+    // Cookies.remove('loggedIn');
+
+    // توجيه المستخدم إلى صفحة تسجيل الدخول بعد تسجيل الخروج
+    window.location.href = '/login'; // أو يمكنك استخدام vue-router للتوجيه
+
+    console.log("User logged out");
+  }
+}
 };
 </script>
 <style lang="scss">

@@ -1,11 +1,11 @@
 // Nuxt config file
 export default {
-  modules: [
-    'vuetify-nuxt-module','@pinia/nuxt',
-  ],
+    modules: ['vuetify-nuxt-module', '@pinia/nuxt', '@nuxtjs/i18n'],
+
   css: [
     '/node_modules/@fortawesome/fontawesome-free/css/all.min.css'
   ],
+
   vuetify: {
     moduleOptions: {
       /* module specific options */
@@ -25,5 +25,7 @@ export default {
         },
       },
     },
-  }
-}
+  },
+
+  compatibilityDate: '2025-01-10'
+};

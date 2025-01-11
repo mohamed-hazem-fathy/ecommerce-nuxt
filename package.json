@@ -10,18 +10,23 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "^3.9.3",
-    "sass": "^1.70.0",
-    "vue": "^3.4.14",
-    "vue-router": "^4.2.5",
-    "vuetify-nuxt-module": "^0.10.3"
+    "@nuxtjs/i18n": "^9.1.1",
+    "nuxt": "^3.15.1",
+    "sass": "^1.83.1",
+    "typescript": "^5.7.3",
+    "vuetify-nuxt-module": "^0.18.3"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.7.1",
-    "@nuxtjs/vuetify": "^1.12.3",
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "@nuxtjs/vuetify": "^0.1.1",
     "@pinia/nuxt": "^0.9.0",
     "axios": "^1.7.9",
-    "typescript": "^5.7.2",
+    "cookie-universal-nuxt": "^2.2.2",
+    "glob": "^11.0.1",
+    "js-cookie": "^3.0.5",
+    "pinia": "^2.3.0",
+    "vue-cookies": "^1.8.5",
+    "vue-i18n": "^11.0.1",
     "vue-toast": "^3.1.0"
   }
 }
